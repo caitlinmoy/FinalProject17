@@ -12,16 +12,21 @@ class Character(object):
         self.sp -= 10
         print("You lost 5 self-esteem points")
 
+
 you = Character("you") #How the player is referred to the entire game
+
+def end_game():
+    if you.sp <= 0:
+        print('''Magnet is too much for you.
+
+You go back to your home district.
+
+''')
+        exit()
 
 print(input('''___WELCOME PUT TEXT HERE LATER_____________________.
 To continue, press [ENTER]''')) # game introduction
 
-if you.sp <= 0:
-    print('''Magnet is too much for you.
-
-You go back to your home district.''')
-    exit()
 
 # Choice_1: Has two options
 # If the player inputs anything other than 'a' or 'b', the question will repeat itself
@@ -102,6 +107,12 @@ Minus 10 self-esteem points.
         print(input('''__Name__: Barrel-rolls away
 
 [ENTER]'''))
+        print("\033[H\033[J")
+        print(input(''' You continue on to your locker on the second floor
+
+[ENTER]'''))
+        choice_3()
+
     if choice is "b":
         print("\033[H\033[J")
         print(input('''You take the green sticker, rip it in half and stomp on it.
@@ -118,6 +129,56 @@ Minus 100 self-esteem points.
 
 [ENTER]'''))
         you.sp -= 100
+        end_game()
+
+def choice_3():
+    print("\033[H\033[J")
+    choice = ""
+    while choice != "a" and choice != "b" and choice != "powerschool":
+        choice = input('''Do you remember your locker combination?
+
+ a  10-14-35
+ b  Nope
+  powerschool
+
+Type a, b, or powerschool: ''').lower
+        if choice is "a":
+            print("\033[H\033[J")
+            print(input('''You remembered correctly!
+
+Plus 5 self-esteem points.
+
+[ENTER]'''))
+            you.sp += 5
+            print("\033[H\033[J")
+            print(input('''You open up your locker only to find a void of empty space.
+Oh that's right, you don’t use your locker anyway.
+
+[ENTER]'''))
+            #choice_4()
+        if choice is "b":
+            print("\033[H\033[J")
+            print(input('''You don’t remember, so you try every possible combination of numbers sequentially.
+
+[ENTER]'''))
+            print(input('''Life goes on.
+
+[ENTER]'''))
+            print(input('''You finally get the correct combination, but everyone has graduated high school already.
+
+Minus 100 self-esteem points.
+
+[ENTER]'''))
+            you.sp -= 100
+            end_game()
+        if choice is "powerschool":
+            print(input(f'''You have {you.sp}.
+You have {you.gp}.
+
+[ENTER]'''))
+        choice_3()
+
+
 
 
 
