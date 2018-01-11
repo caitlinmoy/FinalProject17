@@ -1,4 +1,5 @@
 # Game in which the player must make it through a normal Magnet school day
+# NOTE: NEED TO FIX POWERSCHOOL FUNCTION
 
 class Character(object):
     """character template"""
@@ -14,6 +15,12 @@ class Character(object):
 
 
 you = Character("you") #How the player is referred to the entire game
+
+def powerschool():
+    print(input(f'''You have {you.sp} self-esteem points.
+You have {you.gp} grade points.
+
+[ENTER]'''))
 
 def end_game():
     if you.sp <= 0:
@@ -141,7 +148,7 @@ def choice_3():
  b  Nope
   powerschool
 
-Type a, b, or powerschool: ''').lower
+Type a, b, or powerschool: ''')
         if choice is "a":
             print("\033[H\033[J")
             print(input('''You remembered correctly!
@@ -155,7 +162,20 @@ Plus 5 self-esteem points.
 Oh that's right, you don’t use your locker anyway.
 
 [ENTER]'''))
-            #choice_4()
+            print("\033[H\033[J")
+            print(input('''...
+It's 7:59! You have one minute to get to class.
+
+[ENTER]'''))
+            print("\033[H\033[J")
+            print(input('''You hurry over to English.
+Once you get there, you see Ms. Arnold passing out tests.
+
+You sit down and open up a textbook for some last-minute studying, but when you open it, you find what looks like the answer key stuck in the pages!!
+
+[ENTER]'''))
+
+            choice_4()
         if choice is "b":
             print("\033[H\033[J")
             print(input('''You don’t remember, so you try every possible combination of numbers sequentially.
@@ -172,11 +192,53 @@ Minus 100 self-esteem points.
             you.sp -= 100
             end_game()
         if choice is "powerschool":
-            print(input(f'''You have {you.sp}.
-You have {you.gp}.
+            powerschool()
+            choice_3()
+
+def choice_4():
+    print("\033[H\033[J")
+    choice = ""
+    while choice != "a" and choice != "b":
+        choice = input('''Do you cheat and use the answer key?
+
+ a  Yes
+ b  No
+ powerschool
+
+Type a, b, or powerschool: ''')
+        if choice is "a":
+            print("\033[H\033[J")
+            print(input('''You hide the key underneath your desk and copy down the answers exactly...
+
+    1. C, 2. C, 3. C, 4. C, 5. C...
 
 [ENTER]'''))
-        choice_3()
+            print(input('''But the questions were all "True or False."
+
+Minus 50 grade points.
+
+[ENTER]'''))
+            you.gp -= 50
+            #choice_5()
+        if choice is "b":
+            print("\033[H\033[J")
+            print(input('''You remember the academic honesty policy that you signed at the beginning of the year and choose not to cheat.
+
+But you didn't study anyway.
+
+Minus 20 grade points.
+
+[ENTER]'''))
+            #choice_5()
+            you.gp -= 20
+        if choice is "powerschool":
+            print('You decide to check powerschool to see how much you can afford to fail this next test.')
+            powerschool()
+            print(input('[ENTER]'))
+            choice_4()
+
+
+
 
 
 
