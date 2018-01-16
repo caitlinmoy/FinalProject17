@@ -16,7 +16,6 @@ class Character(object):
 
     def powerschool(self):
         """Displays how many self-esteem/grade points the player has"""
-        print("\033[H\033[J")
         print(input(f'''You have {you.sp} self-esteem points.
 You have {you.gp} grade points.
 
@@ -31,8 +30,10 @@ def end_game():
 
 You go back to your home district.
 
-[ENTER]'''))
-        exit() #ends game if amounts are negative
+[ENTER]''')) #displayed if amounts are negative
+        print("\033[H\033[J")
+        print(input('Press [ENTER] to try again'))
+        choice_1()
 
 # Game introduction
 print(input('''Welcome to Magnet: The Game!
@@ -45,7 +46,9 @@ To continue, press [ENTER]''')) # press ENTER to advance
 # Choice_1: Has two options
 # If the player inputs anything other than 'a' or 'b', the question will repeat itself
 def choice_1():
-    print("\033[H\033[J") #clears screen
+    you.sp = 100 #resets sp value to 100 if the player plays the game multiple times
+    you.gp = 100 #resets gp value to 100 if the player plays the game multiple times
+    print("\033[H\033[J") #used throughout to clear the screen
     choice = ""
     while choice != "a" and choice != "b":
         choice = input('''The lovely smell of bus fumes at 7:55 AM fills the air. You know you’re a slow walker.
@@ -107,20 +110,20 @@ Minus 10 self-esteem points.
 [ENTER]'''))
         you.sp -= 10 #subtracts 10 sp
         print("\033[H\033[J")
-        print(input('''You see __NAME__ waving to you from down the hallway
+        print(input('''You see Betia waving to you from down the hallway
 
 [ENTER]'''))
         print("\033[H\033[J")
-        print(input('''__NAme__: Hey! Did you know if you check Powerschool you can see how many self-esteem points and grade points you have?!?
+        print(input('''Betia: Hey! Did you know if you check Powerschool you can see how many self-esteem points and grade points you have?!?
 
 [ENTER]'''))
         print(input('''You: What?
 
 [ENTER]'''))
-        print(input('''__Name__: What?
+        print(input('''Betia: What?
 
 [ENTER]'''))
-        print(input('''__Name__: Barrel-rolls away
+        print(input('''Betia: Barrel-rolls away
 
 [ENTER]'''))
         print("\033[H\033[J")
@@ -156,7 +159,7 @@ def choice_3():
 
  a  10-14-35
  b  Nope
- c  powerschool
+ c  Check powerschool
 
 Type a, b, or c: ''')
         if choice is "a":
@@ -181,7 +184,7 @@ It's 7:59! You have one minute to get to class.
             print(input('''You hurry over to English.
 Once you get there, you see Ms. Arnold passing out tests.
 
-You sit down and open up a textbook for some last-minute studying, but when you open it, you find what looks like the answer key stuck in the pages!!
+You sit down and open up a textbook for some last-minute studying, but when you open it, you find what looks like the answer key stuck in the pages!
 
 [ENTER]'''))
 
@@ -202,6 +205,7 @@ Minus 100 self-esteem points.
             you.sp -= 100 #subtracts 100 sp
             end_game() #game will end
         if choice is "c":
+            print("\033[H\033[J")
             you.powerschool() #checks powerschool
             choice_3() #back to choice_3
 
@@ -257,7 +261,6 @@ You leave English. It's been a stressful morning.
 
         if choice is "c":
             print("\033[H\033[J")
-            print('You decide to check powerschool to see how much you can afford to fail this next test.')
             you.powerschool() #checks powerschool
             choice_4() #leads to choice_4
 
@@ -319,6 +322,7 @@ The clock is flashing FIRE FIRE FIRE. You walk over to the doorway.
 [ENTER]'''))
             choice_7() #leads to choice_7
         if choice is "c":
+            print("\033[H\033[J")
             you.powerschool() #checks powerschool
             choice_6() #back to choice_6
 
@@ -356,7 +360,7 @@ Self-esteem? Grades? What’s the point?
         if choice is "b":
             print("\033[H\033[J")
 
-            print(input('''You push your fellow classmates down and make a brake for the exit.
+            print(input('''You push your fellow classmates down and make a break for the exit.
 
 [ENTER]'''))
             print("\033[H\033[J")
@@ -422,8 +426,8 @@ Your self-esteem points and grade points max out. You are elevated to a higher l
 
 YOU WIN
 
-Press [ENTER] to exit.'''))
-            exit() #exits the game after pressing ENTER
+Press [ENTER] to play again'''))
+            choice_1() #goes back to start
 
         if choice is "b": #LOSING GAME END
             print("\033[H\033[J")
@@ -431,7 +435,7 @@ Press [ENTER] to exit.'''))
 
 Everything is just so beautiful.
 
-Life is so overwhelming. Suddenly, __Name2__ slaps you across the face and shouts, "Get a grip, man!!"
+Life is so overwhelming. Suddenly, Janessa slaps you across the face and shouts, "Get a grip, man!!"
 
 But you don't want to.
 
@@ -440,8 +444,8 @@ Minus 298 grade points.
 
 THE END
 
-Press [ENTER] to exit'''))
-            exit() #exits the game after pressing ENTER
+Press [ENTER] to play again'''))
+            choice_1() #goes back to choice_1
 
         if choice is "c": #won't access powerschool
             print("\033[H\033[J")
