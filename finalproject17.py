@@ -16,8 +16,8 @@ class Character(object):
 
     def powerschool(self):
         """Displays how many self-esteem/grade points the player has"""
-        print(input(f'''You have {you.sp} self-esteem points.
-You have {you.gp} grade points.
+        print(input(f'''You have {you.sp}/100 self-esteem points.
+You have {you.gp}/100 grade points.
 
 [ENTER]'''))
 
@@ -33,7 +33,7 @@ You go back to your home district.
 [ENTER]''')) #displayed if amounts are negative
         print("\033[H\033[J")
         print(input('Press [ENTER] to try again'))
-        choice_1()
+        choice_1() #player can restart game
 
 # Game introduction
 print(input('''Welcome to Magnet: The Game!
@@ -123,7 +123,7 @@ Minus 10 self-esteem points.
         print(input('''Betia: What?
 
 [ENTER]'''))
-        print(input('''Betia: Barrel-rolls away
+        print(input('''Betia: *Barrel-rolls away*
 
 [ENTER]'''))
         print("\033[H\033[J")
@@ -317,7 +317,7 @@ Type a, b, or c: ''')
             print(input('''You make it to your ¾ class– Tech.
 
 Before you can sit down and open up your chromebook, you hear the fire alarm!
-The clock is flashing FIRE FIRE FIRE. You walk over to the doorway.
+The clock is flashing FiRE FiRE FiRE. You walk over to the doorway.
 
 [ENTER]'''))
             choice_7() #leads to choice_7
