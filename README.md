@@ -4,5 +4,4 @@ In "Magnet: The Game," the player must survive a normal Magnet school day and ev
 Project planning: https://docs.google.com/document/d/15qsbucLXhNRJ2EkmVSZTFdkNuMJMXRYcP-_bTfe6q8s/edit 
 
 Sources: 
-
 https://www.codeproject.com/Questions/855226/Python-Clear-Output-Console-With-Print-Function (discussed how to clear the screen in python)
