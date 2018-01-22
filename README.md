@@ -5,5 +5,7 @@ Flowchart:https://drive.google.com/open?id=1TiiWRFsbYJjNaAWFmsJQKCw8oeVCV-rJ
 
 Project planning: https://docs.google.com/document/d/15qsbucLXhNRJ2EkmVSZTFdkNuMJMXRYcP-_bTfe6q8s/edit 
 
+Presentation: https://docs.google.com/presentation/d/1OiUHO25UZhndG80cuRViOCXtEinuogGTTL6GHfcWE5s/edit?usp=sharing
+
 Sources: 
 https://www.codeproject.com/Questions/855226/Python-Clear-Output-Console-With-Print-Function (discussed how to clear the screen in python)
